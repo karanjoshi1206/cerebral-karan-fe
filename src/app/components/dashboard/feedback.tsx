@@ -19,7 +19,6 @@ const FeedBack = async () => {
   const negative = feedback.negative;
   const neutral = feedback.neutral;
 
-  console.log("feedback", feedback);
 
   const mostly = Object.entries(feedback).sort(([, valueA], [, valueB]) => valueB - valueA)[0]?.[0];
 

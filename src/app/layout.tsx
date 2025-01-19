@@ -20,12 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} px-2 antialiased md:p-4`}>
-        <div className=" bg-primaryBackground rounded-3xl flex">
-          <Sidebar />
-          {children}
-        </div>
-      </body>
+      <body className={`${inter.variable} px-2 antialiased md:p-4`}>{children}</body>
     </html>
   );
 }
