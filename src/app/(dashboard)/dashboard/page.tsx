@@ -8,7 +8,7 @@ import CustomerDevice from "../../components/dashboard/customersDevice";
 
 const Dashboard = async () => {
   return (
-    <div className="mt-6 w-full flex flex-col gap-4 md:flex-row md:m-4">
+    <div className="mt-8 w-full flex flex-col gap-4 md:flex-row md:m-4">
       <div className="bg-white rounded-xl p-0 py-0  flex flex-col gap-4 md:w-[76%] md:p-10 md:py-10">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-lg md:text-3xl font-bold">Dashboard</h1>
