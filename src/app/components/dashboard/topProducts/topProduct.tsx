@@ -23,6 +23,13 @@ function TopProducts() {
 
   return (
     <div>
+      <div className="flex justify-between items-center mb-4">
+        <div className="text-xl font-bold">Top Products</div>
+
+        <button className="rounded-full  flex items-center border-gray-300 border-2 p-2 text-xs md:p-2 md:px-4 md:text-sm gap-1">
+          <span> Full results</span>
+        </button>
+      </div>
       <Table className="border-none">
         <TableHeader className="border-b-2">
           {table.getHeaderGroups().map((headerGroup) => (

@@ -12,7 +12,7 @@ export const columns: ColumnDef<ITopProduct>[] = [
       return <span className="font-semibold text-sm">Product</span>;
     },
     cell: (cell: CellContext<ITopProduct, unknown>) => {
-      return <span className="font-semibold text-lg">{cell?.renderValue() as ReactNode}</span>;
+      return <span className="font-semibold text-sm md:text-lg">{cell?.renderValue() as ReactNode}</span>;
     }
   },
   {
@@ -21,14 +21,14 @@ export const columns: ColumnDef<ITopProduct>[] = [
       return <span className="font-semibold text-sm">Sold amount</span>;
     },
     cell: (cell: CellContext<ITopProduct, unknown>) => {
-      return <span className="font-semibold text-md text-gray-500">{cell?.renderValue() as ReactNode}</span>;
+      return <span className="font-semibold text-sm md:text-md text-gray-500">{cell?.renderValue() as ReactNode}</span>;
     }
   },
   {
     accessorKey: "unit_price",
     header: "Unit Price",
     cell: (cell: CellContext<ITopProduct, unknown>) => {
-      return <span className="font-semibold text-md text-gray-500">{cell?.renderValue() as ReactNode}</span>;
+      return <span className="font-semibold text-sm md:text-md text-gray-500">{cell?.renderValue() as ReactNode}</span>;
     }
   },
   {
@@ -37,7 +37,7 @@ export const columns: ColumnDef<ITopProduct>[] = [
       return <span className="font-semibold text-sm">Revenue</span>;
     },
     cell: (cell: CellContext<ITopProduct, unknown>) => {
-      return <span className="font-semibold text-md text-gray-500">{cell?.renderValue() as ReactNode}</span>;
+      return <span className="font-semibold text-sm md:text-md text-gray-500">{cell?.renderValue() as ReactNode}</span>;
     }
   },
   {

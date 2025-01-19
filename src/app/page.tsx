@@ -8,15 +8,15 @@ import TopProducts from "./components/dashboard/topProducts/topProduct";
 
 export default function Home() {
   return (
-    <div className="m-4 w-full flex gap-4">
-      <div className="bg-white rounded-xl p-10 py-10 w-[76%] flex flex-col gap-4">
+    <div className="mt-6 w-full flex flex-col gap-4 md:flex-row md:m-4">
+      <div className="bg-white rounded-xl p-0 py-0  flex flex-col gap-4 md:w-[76%] md:p-10 md:py-10">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <h1 className="text-lg md:text-3xl font-bold">Dashboard</h1>
           <div className="flex gap-2 items-center font-semibold text-gray-600">
-            <span>Compare to</span>
-            <button className="rounded-full flex items-center border-gray-300 border-2 p-2 px-4 text-sm gap-1">
+            <span className="text-sm">Compare to</span>
+            <button className="rounded-full  flex items-center border-gray-300 border-2 p-2 text-xs md:p-2 md:px-4 md:text-sm gap-1">
               <span> Last year</span>
-              <ChevronDown />
+              <ChevronDown size={16} />
             </button>
           </div>
         </div>
@@ -25,7 +25,7 @@ export default function Home() {
         <TopProducts />
       </div>
 
-      <div className="w-[24%] ">
+      <div className="md:w-[24%] ">
         <div className="flex flex-col gap-4">
           <Score />
           <CustomersDevice />

@@ -9,7 +9,9 @@ body {
 @layer base {
   :root {
     --primary-background: #f4f5f8;
-    --background: #fefffe;
+    --background: 0 0% 100%;
+    --background-light: #fefffe;
+
     --link-color: "#9b9ca3";
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;

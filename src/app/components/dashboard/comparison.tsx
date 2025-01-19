@@ -41,12 +41,13 @@ function Comparison() {
       <div className="flex justify-between items-center mb-4">
         <CardTitle className="text-xl font-bold">Comparison</CardTitle>
 
-        <button className="rounded-full flex items-center border-gray-300 border-2 p-2 px-4 text-sm gap-1">
+        <button className="rounded-full  flex items-center border-gray-300 border-2 p-2 text-xs md:p-2 md:px-4 md:text-sm gap-1">
           <span> 6 months</span>
-          <ChevronDown />
+          <ChevronDown size={16} />
         </button>
       </div>
-      <CardContent>
+
+      <CardContent className="p-0">
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />

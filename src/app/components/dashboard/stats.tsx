@@ -15,7 +15,7 @@ const Stats = async () => {
   const stats: { [key: string]: string } = await data.json();
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 flex-wrap">
       {stats &&
         Object.keys(stats).map((key, idx) => {
           return <StateTile key={idx} title={key} value={stats[key]} changed={idx === 1 ? "decreased" : "increased"} changedBy="10%" />;
