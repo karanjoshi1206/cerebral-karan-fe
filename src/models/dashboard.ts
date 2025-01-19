@@ -18,9 +18,9 @@ export interface IFeedback {
 }
 
 export interface ICustomerFeedback {
-  date2: string;
-  unique_count: number;
-  cumulative_tweets: number;
+  date: string;
+  offline_sales: number;
+  web_sales: number;
 }
 
 export interface ISheetData {

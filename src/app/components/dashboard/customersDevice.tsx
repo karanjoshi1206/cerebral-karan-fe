@@ -6,40 +6,37 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { useEffect, useState } from "react";
 import { ICustomerFeedback } from "@/models/dashboard";
+import useSheetData from "@/app/hooks/useSheetData";
 
 const chartConfig = {
-  unique_count: {
-    label: "Unique Count",
+  offline_sales: {
+    label: "Offline Sales",
     color: "hsl(var(--chart-1))"
   },
-  cumulative_tweets: {
-    label: "Cumulative Tweets",
+  web_sales: {
+    label: "Web Sales",
     color: "hsl(var(--chart-2))"
   }
 } satisfies ChartConfig;
 
 function CustomerDevice() {
   const [chartData, setChartData] = useState<ICustomerFeedback[]>([]);
+  const { sheetData } = useSheetData();
   const fetchData = async () => {
-    const myHeaders = new Headers();
-    myHeaders.append("accept", "application/json");
-    myHeaders.append("Authorization", "Basic dHJpYWw6YXNzaWdubWVudDEyMw==");
+    const feedBackData: ICustomerFeedback[] = sheetData?.sheet3?.map((item) => {
+      return {
+        offline_sales: item.offline_sales,
+        date: item.date,
+        web_sales: item.web_sales
+      };
+    });
 
-    const requestOptions: RequestInit = {
-      method: "GET",
-      headers: myHeaders,
-      redirect: "follow"
-    };
-
-    const data = await fetch("http://3.111.196.92:8020/api/v1/sample_assignment_api_4/", requestOptions);
-    const feedback: ICustomerFeedback[] = await data.json();
-
-    setChartData(feedback);
+    setChartData(feedBackData);
   };
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [sheetData]);
 
   return (
     <Card>
@@ -57,10 +54,10 @@ function CustomerDevice() {
             }}
           >
             <CartesianGrid vertical={false} />
-            <XAxis dataKey="date2" tickLine={false} axisLine={true} tickMargin={8} tickFormatter={() => ""} />
-            <YAxis tickLine={false} axisLine={true} tickMargin={8} label={{ angle: -90, position: "insideLeft", offset: -10 }} /> <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-            <Line dataKey="unique_count" type="monotone" stroke="var(--color-unique_count)" strokeWidth={2} dot={false} />
-            <Line dataKey="cumulative_tweets" type="monotone" stroke="var(--color-cumulative_tweets)" strokeWidth={2} dot={false} />
+            <XAxis interval="preserveStartEnd" dataKey="date" tickLine={false} axisLine={true} tickMargin={8} tickFormatter={() => ""} />
+            <YAxis tickLine={false} axisLine={true} tickMargin={4} label={{ angle: -90, position: "insideLeft", offset: -10 }} /> <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+            <Line dataKey="offline_sales" type="monotone" stroke="var(--color-offline_sales)" strokeWidth={2} dot={false} />
+            <Line dataKey="web_sales" type="monotone" stroke="var(--color-web_sales)" strokeWidth={2} dot={false} />
           </LineChart>
         </ChartContainer>
       </CardContent>
